@@ -1,6 +1,9 @@
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
-public class MyArrayList<T> {
+public class MyArrayList<T> implements Iterable<T>{
     private static final int initialCapacity = 10;
     private static int size;
     private static int index;
@@ -105,9 +108,29 @@ public class MyArrayList<T> {
         return Arrays.equals(list, that.list);
     }
 
+
     @Override
-    public int hashCode() {
-        return Arrays.hashCode(list);
+    public Iterator<T> iterator() {
+        Iterator<T> it = new Iterator<T>() {
+
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < size && list[currentIndex] != null;
+            }
+
+            @Override
+            public T next() {
+                return (T) list[currentIndex++];
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+        return it;
     }
 }
 
