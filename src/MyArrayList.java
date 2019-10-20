@@ -6,8 +6,6 @@ public class MyArrayList<T> {
     private static int index;
     private Object list[] = {};
 
-
-
     public MyArrayList(Object[] list) {
         this.list = list;
     }
@@ -29,8 +27,9 @@ public class MyArrayList<T> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size "
                     + size);
         }
-        if (index > list.length) {
+        if (index > list.length - 1) {
             addCapacity();
+
         }
         if (index < size) {
             for (int tmp = size + 1; tmp > index; tmp--) {

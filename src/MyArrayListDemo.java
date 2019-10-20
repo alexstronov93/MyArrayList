@@ -13,13 +13,16 @@ public class MyArrayListDemo {
         myList.display();
 
         myList.add(7,1);
+        myList.add(8,15);
+        myList.add(9,15);
+        myList.add(10,15);
+        myList.add(6,15);
+        myList.add(6,15);
+        myList.add(6,15);
         myList.display();
 
-        myList.add(5,3);
-        myList.display();
 
-        myList.remove(3);
-        myList.display();
+
 
         System.out.println("Size of list is: "+myList.size());
         System.out.println(myList.get(7));
